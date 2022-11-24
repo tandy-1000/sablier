@@ -10,7 +10,7 @@ type Provider struct {
 	Name string `mapstructure:"NAME" yaml:"provider,omitempty"`
 }
 
-var providers = []string{"docker", "swarm", "kubernetes"}
+var providers = []string{"docker", "swarm", "kubernetes", "ecs"}
 
 func NewProviderConfig() Provider {
 	return Provider{

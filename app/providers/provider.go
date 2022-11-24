@@ -24,6 +24,8 @@ func NewProvider(config config.Provider) (Provider, error) {
 		return NewDockerClassicProvider()
 	case config.Name == "kubernetes":
 		return NewKubernetesProvider()
+	case config.Name == "ecs":
+		return NewAWSElasticContainerServiceProvider()
 	}
 	return nil, fmt.Errorf("unimplemented provider %s", config.Name)
 }
