@@ -94,8 +94,6 @@ func (c *Config) buildDynamicRequest(middlewareName string) (*http.Request, erro
 		q.Add("session_duration", c.SessionDuration)
 	}
 
-	q.Add("session_duration", c.SessionDuration)
-
 	for _, name := range c.splittedNames {
 		q.Add("names", name)
 	}

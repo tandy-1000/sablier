@@ -187,6 +187,17 @@ func TestConfig_BuildRequest(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name: "blocking session with group",
+			fields: fields{
+				SablierURL:      "http://sablier:10000",
+				Group:           "default",
+				SessionDuration: "1m",
+				Blocking:        &traefik.BlockingConfiguration{},
+			},
+			want:    createRequest("GET", "http://sablier:10000/api/strategies/blocking?group=default&session_duration=1m", nil),
+			wantErr: false,
+		},
+		{
 			name: "blocking session with timeout value",
 			fields: fields{
 				SablierURL:      "http://sablier:10000",
